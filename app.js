@@ -10,8 +10,9 @@ import { errorMiddleware } from "./middlewares/error.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 import serverless from 'serverless-http'; 
 
-const app = express();
+
  config({ path: "./config/config.env" });
+const app = express();
 
 app.use(
   cors({
@@ -53,7 +54,7 @@ const connectWithRetry = async () => {
 
 connectWithRetry();
 
-dbConnection();
+
 
  app.use(errorMiddleware);
 export const handler = serverless(app);
